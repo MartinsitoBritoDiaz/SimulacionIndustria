@@ -16,7 +16,7 @@ namespace Proyecto_Simulación_Industria
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new InicioForm());
         }
     }
 }
