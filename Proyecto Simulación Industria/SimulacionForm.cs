@@ -22,6 +22,10 @@ namespace Proyecto_Simulación_Industria
         int ProducidoMaquina1 = 0;
         int ProducidoMaquina2 = 0;
 
+        int HorasTrabjadas = 0;
+        int diasTrabajado = 0;
+        int mesesTrabajados = 0;
+
         public SimulacionForm()
         {
             InitializeComponent();
@@ -44,6 +48,7 @@ namespace Proyecto_Simulación_Industria
 
 
         int i = 0;
+        int tiempodañado1 = 0;
         public void Maquina1()
         {
             Random random = new Random();
@@ -51,14 +56,40 @@ namespace Proyecto_Simulación_Industria
             double metodoReparacion; //Determina entre el a y el B
             double probabilidadDañarse = 0.10;
 
-            textBox1.Text = Convert.ToString(i);
+            if (!maquina1.Estado)
+            {
+                tiempodañado1++;
+                textBox1.Text = Convert.ToString(tiempodañado1);
+                if (tiempodañado1 == 20)
+                {
+                    maquina1.Estado = true;
+                    tiempodañado1 = 0;
+
+                }
+
+            }
+
+            if (maquina1.Estado)
+            {
+                Funcionando1PictureBox.Visible = true;
+                Error1PictureBox.Visible = false;
+            }
+            else
+            {
+                Funcionando1PictureBox.Visible = false;
+                Error1PictureBox.Visible = true;
+
+            }
+
+
+
             aux = random.NextDouble();
             metodoReparacion = random.NextDouble();
 
-            if (aux < probabilidadDañarse)
+            if (maquina1.Estado && aux < probabilidadDañarse)
                 maquina1.Estado = false;
 
-            MateriaPrimatextBox.Text = maquina1.EsReparado.ToString(); //quitar luego
+            MateriaPrimatextBox.Text = maquina1.Estado.ToString(); //quitar luego
 
             if (maquina1.Estado)
             {
@@ -85,7 +116,7 @@ namespace Proyecto_Simulación_Industria
             }
         }
 
-      
+        int tiempodañado2=0;
         public void Maquina2()
         {
             Random random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
@@ -93,8 +124,34 @@ namespace Proyecto_Simulación_Industria
             double metodoReparacion; //Determina entre el a y el B
             double probabilidadDañarse2 = 0.10;
 
+
+            if (!maquina2.Estado)
+            {
+                tiempodañado2++;
+                MateriaPrimatextBox.Text = Convert.ToString(tiempodañado2);
+                if (tiempodañado2 == 20)
+                {
+                    maquina2.Estado = true;
+                    tiempodañado2 = 0;
+
+                }
+            }
            
-                aux = random.NextDouble();
+
+            if (maquina2.Estado)
+            {
+                Funcionando2PictureBox.Visible = true;
+                Error2PictureBox.Visible = false;
+            }
+            else
+            {
+                Funcionando2PictureBox.Visible = false;
+                Error2PictureBox.Visible = true;
+            }
+
+            
+
+            aux = random.NextDouble();
                 metodoReparacion = random.NextDouble();
 
                 if (aux < probabilidadDañarse2)
@@ -131,11 +188,28 @@ namespace Proyecto_Simulación_Industria
             
         }
 
+       
         public void Ejecucion()
         {
 
-            
-            if (i < pedido.CantidadPedido)
+            HorasTrabjadas++; //aumenta 1 hora
+
+            if (HorasTrabjadas == 10)
+            {
+                diasTrabajado++;
+                HorasTrabjadas= 0;
+
+                if (diasTrabajado == 30)
+                {
+                    mesesTrabajados++;
+                    MesesTrabajadostextBox.Text= Convert.ToString(mesesTrabajados);
+                }
+                    
+            }
+            HorasTrabajadastextBox.Text = Convert.ToString(HorasTrabjadas);
+            DiastrabajadostextBox.Text = Convert.ToString(diasTrabajado);
+
+            if (i <= pedido.CantidadPedido)
             //for (int i = 0; i <= pedido.CantidadPedido; i++)
             {
                 Maquina1();
@@ -182,6 +256,16 @@ namespace Proyecto_Simulación_Industria
             
             Ejecucion();
             
+        }
+
+        private void SimulacionForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
