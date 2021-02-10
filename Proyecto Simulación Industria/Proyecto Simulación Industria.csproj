@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\Maquinas.cs" />
+    <Compile Include="Entidades\MateriaPrima.cs" />
+    <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="InicioForm.cs">
       <SubType>Form</SubType>
     </Compile>
