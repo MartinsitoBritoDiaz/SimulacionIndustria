@@ -36,7 +36,6 @@ namespace Proyecto_Simulación_Industria
             this.Produccion1Label = new System.Windows.Forms.Label();
             this.Produccion2Label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Funcionando1PictureBox = new System.Windows.Forms.PictureBox();
             this.Funcionando2PictureBox = new System.Windows.Forms.PictureBox();
             this.Errror1PictureBox = new System.Windows.Forms.PictureBox();
             this.Error2PictureBox = new System.Windows.Forms.PictureBox();
@@ -50,20 +49,21 @@ namespace Proyecto_Simulación_Industria
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.Funcionando1PictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Maquinaria1PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Maquinaria2PictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Funcionando1PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Funcionando2PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Errror1PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Error2PictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Funcionando1PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Maquinaria1PictureBox
             // 
             this.Maquinaria1PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Maquinaria1PictureBox.Image")));
-            this.Maquinaria1PictureBox.Location = new System.Drawing.Point(75, 408);
+            this.Maquinaria1PictureBox.Location = new System.Drawing.Point(75, 466);
             this.Maquinaria1PictureBox.Name = "Maquinaria1PictureBox";
             this.Maquinaria1PictureBox.Size = new System.Drawing.Size(175, 156);
             this.Maquinaria1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -73,7 +73,7 @@ namespace Proyecto_Simulación_Industria
             // Maquinaria2PictureBox
             // 
             this.Maquinaria2PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Maquinaria2PictureBox.Image")));
-            this.Maquinaria2PictureBox.Location = new System.Drawing.Point(591, 408);
+            this.Maquinaria2PictureBox.Location = new System.Drawing.Point(591, 466);
             this.Maquinaria2PictureBox.Name = "Maquinaria2PictureBox";
             this.Maquinaria2PictureBox.Size = new System.Drawing.Size(186, 156);
             this.Maquinaria2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -84,7 +84,7 @@ namespace Proyecto_Simulación_Industria
             // 
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.Location = new System.Drawing.Point(256, 420);
+            this.label.Location = new System.Drawing.Point(256, 478);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(110, 25);
             this.label.TabIndex = 2;
@@ -94,7 +94,7 @@ namespace Proyecto_Simulación_Industria
             // 
             this.Produccion1Label.AutoSize = true;
             this.Produccion1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Produccion1Label.Location = new System.Drawing.Point(372, 420);
+            this.Produccion1Label.Location = new System.Drawing.Point(372, 478);
             this.Produccion1Label.Name = "Produccion1Label";
             this.Produccion1Label.Size = new System.Drawing.Size(34, 25);
             this.Produccion1Label.TabIndex = 3;
@@ -104,7 +104,7 @@ namespace Proyecto_Simulación_Industria
             // 
             this.Produccion2Label.AutoSize = true;
             this.Produccion2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Produccion2Label.Location = new System.Drawing.Point(899, 420);
+            this.Produccion2Label.Location = new System.Drawing.Point(899, 478);
             this.Produccion2Label.Name = "Produccion2Label";
             this.Produccion2Label.Size = new System.Drawing.Size(34, 25);
             this.Produccion2Label.TabIndex = 5;
@@ -114,26 +114,16 @@ namespace Proyecto_Simulación_Industria
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(783, 420);
+            this.label3.Location = new System.Drawing.Point(783, 478);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Producción";
             // 
-            // Funcionando1PictureBox
-            // 
-            this.Funcionando1PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Funcionando1PictureBox.Image")));
-            this.Funcionando1PictureBox.Location = new System.Drawing.Point(117, 582);
-            this.Funcionando1PictureBox.Name = "Funcionando1PictureBox";
-            this.Funcionando1PictureBox.Size = new System.Drawing.Size(92, 66);
-            this.Funcionando1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Funcionando1PictureBox.TabIndex = 6;
-            this.Funcionando1PictureBox.TabStop = false;
-            // 
             // Funcionando2PictureBox
             // 
             this.Funcionando2PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Funcionando2PictureBox.Image")));
-            this.Funcionando2PictureBox.Location = new System.Drawing.Point(637, 582);
+            this.Funcionando2PictureBox.Location = new System.Drawing.Point(637, 640);
             this.Funcionando2PictureBox.Name = "Funcionando2PictureBox";
             this.Funcionando2PictureBox.Size = new System.Drawing.Size(92, 66);
             this.Funcionando2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -143,7 +133,7 @@ namespace Proyecto_Simulación_Industria
             // Errror1PictureBox
             // 
             this.Errror1PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Errror1PictureBox.Image")));
-            this.Errror1PictureBox.Location = new System.Drawing.Point(117, 582);
+            this.Errror1PictureBox.Location = new System.Drawing.Point(120, 640);
             this.Errror1PictureBox.Name = "Errror1PictureBox";
             this.Errror1PictureBox.Size = new System.Drawing.Size(92, 66);
             this.Errror1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -153,7 +143,7 @@ namespace Proyecto_Simulación_Industria
             // Error2PictureBox
             // 
             this.Error2PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Error2PictureBox.Image")));
-            this.Error2PictureBox.Location = new System.Drawing.Point(637, 582);
+            this.Error2PictureBox.Location = new System.Drawing.Point(637, 640);
             this.Error2PictureBox.Name = "Error2PictureBox";
             this.Error2PictureBox.Size = new System.Drawing.Size(92, 66);
             this.Error2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -165,7 +155,7 @@ namespace Proyecto_Simulación_Industria
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(60, 121);
+            this.label1.Location = new System.Drawing.Point(594, 117);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 25);
             this.label1.TabIndex = 10;
@@ -173,14 +163,14 @@ namespace Proyecto_Simulación_Industria
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(251, 121);
+            this.textBox1.Location = new System.Drawing.Point(785, 117);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(54, 22);
             this.textBox1.TabIndex = 11;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(251, 245);
+            this.textBox2.Location = new System.Drawing.Point(785, 241);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(54, 22);
             this.textBox2.TabIndex = 13;
@@ -190,7 +180,7 @@ namespace Proyecto_Simulación_Industria
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(60, 241);
+            this.label2.Location = new System.Drawing.Point(594, 237);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 25);
             this.label2.TabIndex = 12;
@@ -203,7 +193,7 @@ namespace Proyecto_Simulación_Industria
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(581, 86);
+            this.groupBox1.Location = new System.Drawing.Point(75, 100);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(342, 180);
             this.groupBox1.TabIndex = 17;
@@ -241,7 +231,7 @@ namespace Proyecto_Simulación_Industria
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(251, 186);
+            this.textBox5.Location = new System.Drawing.Point(785, 182);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(54, 22);
             this.textBox5.TabIndex = 19;
@@ -251,17 +241,28 @@ namespace Proyecto_Simulación_Industria
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(60, 182);
+            this.label6.Location = new System.Drawing.Point(594, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(168, 25);
             this.label6.TabIndex = 18;
             this.label6.Text = "Horas Trabajadas";
+            // 
+            // Funcionando1PictureBox
+            // 
+            this.Funcionando1PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Funcionando1PictureBox.Image")));
+            this.Funcionando1PictureBox.Location = new System.Drawing.Point(120, 640);
+            this.Funcionando1PictureBox.Name = "Funcionando1PictureBox";
+            this.Funcionando1PictureBox.Size = new System.Drawing.Size(92, 66);
+            this.Funcionando1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Funcionando1PictureBox.TabIndex = 20;
+            this.Funcionando1PictureBox.TabStop = false;
             // 
             // SimulacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 795);
+            this.Controls.Add(this.Funcionando1PictureBox);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
@@ -272,7 +273,6 @@ namespace Proyecto_Simulación_Industria
             this.Controls.Add(this.Error2PictureBox);
             this.Controls.Add(this.Errror1PictureBox);
             this.Controls.Add(this.Funcionando2PictureBox);
-            this.Controls.Add(this.Funcionando1PictureBox);
             this.Controls.Add(this.Produccion2Label);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Produccion1Label);
@@ -283,13 +283,13 @@ namespace Proyecto_Simulación_Industria
             this.Text = "SimulacionForm";
             ((System.ComponentModel.ISupportInitialize)(this.Maquinaria1PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Maquinaria2PictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Funcionando1PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Funcionando2PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Errror1PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Error2PictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Funcionando1PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,7 +303,6 @@ namespace Proyecto_Simulación_Industria
         private System.Windows.Forms.Label Produccion1Label;
         private System.Windows.Forms.Label Produccion2Label;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox Funcionando1PictureBox;
         private System.Windows.Forms.PictureBox Funcionando2PictureBox;
         private System.Windows.Forms.PictureBox Errror1PictureBox;
         private System.Windows.Forms.PictureBox Error2PictureBox;
@@ -317,5 +316,6 @@ namespace Proyecto_Simulación_Industria
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox Funcionando1PictureBox;
     }
 }
