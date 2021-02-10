@@ -53,6 +53,8 @@ namespace Proyecto_Simulación_Industria
             this.Funcionando1PictureBox = new System.Windows.Forms.PictureBox();
             this.IniciarButton = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.TotalProducidoTextbox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Maquinaria1PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Maquinaria2PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Funcionando2PictureBox)).BeginInit();
@@ -284,7 +286,7 @@ namespace Proyecto_Simulación_Industria
             // 
             // IniciarButton
             // 
-            this.IniciarButton.Location = new System.Drawing.Point(312, 282);
+            this.IniciarButton.Location = new System.Drawing.Point(237, 265);
             this.IniciarButton.Name = "IniciarButton";
             this.IniciarButton.Size = new System.Drawing.Size(114, 44);
             this.IniciarButton.TabIndex = 21;
@@ -297,11 +299,34 @@ namespace Proyecto_Simulación_Industria
             this.timer.Interval = 2000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // TotalProducidoTextbox
+            // 
+            this.TotalProducidoTextbox.Location = new System.Drawing.Point(569, 288);
+            this.TotalProducidoTextbox.Margin = new System.Windows.Forms.Padding(2);
+            this.TotalProducidoTextbox.Multiline = true;
+            this.TotalProducidoTextbox.Name = "TotalProducidoTextbox";
+            this.TotalProducidoTextbox.Size = new System.Drawing.Size(86, 30);
+            this.TotalProducidoTextbox.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(446, 286);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 20);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Total Producido";
+            // 
             // SimulacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 609);
+            this.Controls.Add(this.TotalProducidoTextbox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.IniciarButton);
             this.Controls.Add(this.Funcionando1PictureBox);
             this.Controls.Add(this.textBox5);
@@ -361,5 +386,7 @@ namespace Proyecto_Simulación_Industria
         private System.Windows.Forms.PictureBox Funcionando1PictureBox;
         private System.Windows.Forms.Button IniciarButton;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TextBox TotalProducidoTextbox;
+        private System.Windows.Forms.Label label4;
     }
 }
