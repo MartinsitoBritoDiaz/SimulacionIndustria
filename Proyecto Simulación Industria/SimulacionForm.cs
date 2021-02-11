@@ -6,6 +6,8 @@ namespace Proyecto_Simulación_Industria
 {
     public partial class SimulacionForm : Form
     {
+        int materiaPrima = 1000;
+
         Pedido pedido = new Pedido();
         Maquinas maquina1 = new Maquinas(1, 50, 10, true, false, 0);
         
@@ -16,8 +18,6 @@ namespace Proyecto_Simulación_Industria
 
         bool horasNormales;
         bool horasExtras;
-
-     
 
         int ProducidoMaquina1 = 0;
         int ProducidoMaquina2 = 0;
@@ -358,6 +358,26 @@ namespace Proyecto_Simulación_Industria
 
                 Maquina2();
 
+                if(maquina1.Estado == true || maquina2.Estado == true)
+                {
+                    MateriaPrimatextBox.Text = Convert.ToString(materiaPrima);
+
+                    if (materiaPrima <= 0)
+                    {
+                        timer.Stop();
+                        materiaPrima = 0;
+                        MessageBox.Show("Se esta suministrando materia prima!!");
+                        materiaPrima = 1000;
+                        timer.Enabled = true;
+                    }
+
+                    if (maquina1.Estado)
+                        materiaPrima -= 30;
+
+                    if (maquina2.Estado)
+                        materiaPrima -= 20;
+                }
+
                 i++;
             }
             else
@@ -404,7 +424,7 @@ namespace Proyecto_Simulación_Industria
 
         private void SimulacionForm_Load(object sender, EventArgs e)
         {
-
+            PedidoTextBox.Focus();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
