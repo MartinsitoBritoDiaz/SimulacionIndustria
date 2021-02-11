@@ -1,12 +1,5 @@
 ﻿using Proyecto_Simulación_Industria.Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_Simulación_Industria
@@ -17,13 +10,14 @@ namespace Proyecto_Simulación_Industria
         Maquinas maquina1 = new Maquinas(1, 50, 10, true, false, 0);
         
         Maquinas maquina2 = new Maquinas(1, 40, 10, true, false, 0);
+        //maquinaId, ProduccionHora, HorasHabiles, Estado, EsReparado, ProdAtrasada}
 
         int TotalProducido = 0;
         int ProducidoRetrasoMaquina1 = 1000;
         int ProducidoRetrasodaMaquina2 = 800;
 
-        int ProducionInicialMaquina2 = 40;
-        //maquinaId, ProduccionHora, HorasHabiles, Estado, EsReparado, ProdAtrasada}
+        int ProducionInicialMaquina2 = 40; 
+     
 
         int ProducidoMaquina1 = 0;
         int ProducidoMaquina2 = 0;
@@ -71,12 +65,13 @@ namespace Proyecto_Simulación_Industria
             {
                 tiempodañado1++;
                 textBox1.Text = Convert.ToString(tiempodañado1);
+
                 if (tiempodañado1 == 20)
                 {
                     maquina1.Estado = true;
                     tiempodañado1 = 0;
-
                 }
+                maquina1.ProduccionAtrasada += 50;
             }
 
 
@@ -85,12 +80,23 @@ namespace Proyecto_Simulación_Industria
                 Funcionando1PictureBox.Visible = true;
                 Error1PictureBox.Visible = false;
                 
-                if(50 < maquina1.ProduccionPorHora)
+
+                
+               
+                if (maquina1.ProduccionAtrasada == 0)
                 {
-                    if (contadorHorasAumentado == 100)
-                        maquina1.ProduccionPorHora = 50;
-                } 
-                            
+                    maquina1.ProduccionPorHora = 50;
+                    maquina1.HorasHabiles = 10;
+                }
+                else
+                {
+                    if(maquina1.HorasHabiles!=12)
+                        maquina1.ProduccionAtrasada -= 10;//Si esta produciendo el 20% mas ira restando los 10 de mas que produce
+                }
+                
+
+                ProduccionHora1label.Text = Convert.ToString(maquina1.ProduccionPorHora);
+                ProduccionAtrasada1label.Text= Convert.ToString(maquina1.ProduccionAtrasada);
             }
             else
             {
@@ -215,17 +221,28 @@ namespace Proyecto_Simulación_Industria
 
             if (HorasTrabjadas == 10)
             {
-                diasTrabajado++;
-                HorasTrabjadas= 0;
+                if(maquina1.HorasHabiles == 10 && maquina2.HorasHabiles == 10)
+                {
+                    diasTrabajado++;
+                    HorasTrabjadas = 0;
+                }
+                else
+                {
+                    if (maquina1.HorasHabiles == 12 || maquina2.HorasHabiles == 12)
+                        diasTrabajado++;
+                        HorasTrabjadas = 0;
+                }
 
                 if (diasTrabajado == 30)
                 {
                     mesesTrabajados++;
-                    MesesTrabajadostextBox.Text= Convert.ToString(mesesTrabajados);
+                    MesesTrabajadostextBox.Text = Convert.ToString(mesesTrabajados);
                     diasTrabajado = 0;
                 }
-                    
+
             }
+
+
             HorasTrabajadastextBox.Text = Convert.ToString(HorasTrabjadas);
             DiastrabajadostextBox.Text = Convert.ToString(diasTrabajado);
 
