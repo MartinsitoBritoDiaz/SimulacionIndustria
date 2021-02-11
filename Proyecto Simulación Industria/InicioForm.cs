@@ -29,7 +29,7 @@ namespace Proyecto_Simulación_Industria
 
         private void InicioButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Este es un simulador de una industria que posee dos maquinas, la primera maquina produce 50 productos por hora, la segunda maquina produce 40 productos por hora. Estas maquinas tienen una posibilidad de dañarse de 0.01 porciento");
+            MessageBox.Show("Este es un simulador de una industria que posee dos maquinas, la primera maquina produce 50 productos por hora, la segunda maquina produce 40 productos por hora. Estas maquinas tienen una posibilidad de dañarse de 1 porciento");
            
             SimulacionForm Simulacion = new SimulacionForm();
             Simulacion.Show();

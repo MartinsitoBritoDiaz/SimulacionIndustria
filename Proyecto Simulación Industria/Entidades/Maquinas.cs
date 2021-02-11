@@ -12,7 +12,7 @@ namespace Proyecto_Simulación_Industria.Entidades
         public int ProduccionPorHora { get; set; }
         public int HorasHabiles { get; set; }  //recomendacion para si trabaja las 10 o extras
         public bool Estado { get; set; }
-        public bool EsReparado { get; set; }
+        public bool Reparando { get; set; }
 
         public int ProduccionAtrasada { get; set; }
 
@@ -22,7 +22,7 @@ namespace Proyecto_Simulación_Industria.Entidades
             ProduccionPorHora = produccionPorHora;
             HorasHabiles = horasHabiles;
             Estado = estado;
-            EsReparado = esReparado;
+            Reparando = esReparado;
             ProduccionAtrasada = produccionAtrasada;
         }
     }

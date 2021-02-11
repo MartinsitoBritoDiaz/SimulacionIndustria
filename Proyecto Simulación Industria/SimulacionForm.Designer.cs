@@ -192,7 +192,7 @@ namespace Proyecto_Simulación_Industria
             this.label2.Size = new System.Drawing.Size(132, 25);
             this.label2.TabIndex = 12;
             this.label2.Text = "Materia Prima";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+       
             // 
             // groupBox1
             // 
@@ -219,7 +219,7 @@ namespace Proyecto_Simulación_Industria
             this.label5.Size = new System.Drawing.Size(190, 24);
             this.label5.TabIndex = 18;
             this.label5.Text = "Productos del pedido";
-            this.label5.Click += new System.EventHandler(this.label5_Click_1);
+   
             // 
             // PedidoTextBox
             // 
@@ -328,7 +328,7 @@ namespace Proyecto_Simulación_Industria
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tiempo";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+           
             // 
             // HorasTrabajadastextBox
             // 
@@ -541,7 +541,7 @@ namespace Proyecto_Simulación_Industria
             this.MetodoRecuperacion1label.TabIndex = 46;
             this.MetodoRecuperacion1label.Text = "X";
             this.MetodoRecuperacion1label.Visible = false;
-            this.MetodoRecuperacion1label.Click += new System.EventHandler(this.label15_Click);
+
             // 
             // MetodoRecuperacion2label
             // 
@@ -563,7 +563,7 @@ namespace Proyecto_Simulación_Industria
             this.label17.Size = new System.Drawing.Size(203, 25);
             this.label17.TabIndex = 47;
             this.label17.Text = "Metodo Recuperación";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
+
             // 
             // SimulacionForm
             // 

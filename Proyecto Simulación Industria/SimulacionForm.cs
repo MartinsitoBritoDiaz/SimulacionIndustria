@@ -6,7 +6,7 @@ namespace Proyecto_Simulación_Industria
 {
     public partial class SimulacionForm : Form
     {
-        int materiaPrima = 1000;
+        int materiaPrima = 2000;
 
         Pedido pedido = new Pedido();
         Maquinas maquina1 = new Maquinas(1, 50, 10, true, false, 0);
@@ -48,21 +48,6 @@ namespace Proyecto_Simulación_Industria
         {
             InitializeComponent();
             pictureBox1.Visible = false;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -120,7 +105,7 @@ namespace Proyecto_Simulación_Industria
 
             if (maquina1.Estado)
             {
-                maquina1.EsReparado = false;
+                maquina1.Reparando = false;
                 Maquina1richTextBox.Visible = false;
                 MetodoRecuperacion1label.Visible = false;
                 ExisteRepuesto = random.NextDouble() >= 0.5;
@@ -167,9 +152,9 @@ namespace Proyecto_Simulación_Industria
             }
             else  
             {
-                if (!maquina1.EsReparado)
+                if (!maquina1.Reparando)
                 {
-                    maquina1.EsReparado = true;
+                    maquina1.Reparando = true;
                     if (metodoRecuperacion > 0.50)
                     {
                         MetodoRecuperacion1label.Visible = true;
@@ -243,7 +228,7 @@ namespace Proyecto_Simulación_Industria
 
             if (maquina2.Estado)
             {
-                maquina2.EsReparado = false;
+                maquina2.Reparando = false;
                 Maquina2richTextBox.Visible = false;
                 MetodoRecuperacion2label.Visible = false;   
                 Funcionando2PictureBox.Visible = true;
@@ -290,9 +275,9 @@ namespace Proyecto_Simulación_Industria
             }
             else
             {
-                if (!maquina2.EsReparado)
+                if (!maquina2.Reparando)
                 {
-                    maquina2.EsReparado = true;
+                    maquina2.Reparando = true;
                     if (metodoRecuperacion > 0.50)
                     {
                         MetodoRecuperacion2label.Visible = true;
@@ -367,7 +352,7 @@ namespace Proyecto_Simulación_Industria
                         timer.Stop();
                         materiaPrima = 0;
                         MessageBox.Show("Se esta suministrando materia prima!!");
-                        materiaPrima = 1000;
+                        materiaPrima = 2000;
                         timer.Enabled = true;
                     }
 
@@ -427,24 +412,6 @@ namespace Proyecto_Simulación_Industria
             PedidoTextBox.Focus();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
