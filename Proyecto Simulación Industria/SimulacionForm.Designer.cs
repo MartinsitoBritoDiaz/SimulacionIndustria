@@ -266,7 +266,7 @@ namespace Proyecto_Simulación_Industria
             // 
             // timer
             // 
-            this.timer.Interval = 300;
+            this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // TotalProducidoTextbox
