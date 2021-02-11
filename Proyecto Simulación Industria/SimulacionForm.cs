@@ -68,7 +68,7 @@ namespace Proyecto_Simulación_Industria
 
         int i = 0;
         int tiempodañado1 = 0;
-        double probabilidadDañarse1 = 0.025;
+        double probabilidadDañarse1 = 0.01;
 
         public void Maquina1()
         {
@@ -81,7 +81,6 @@ namespace Proyecto_Simulación_Industria
             if (!maquina1.Estado)
             {
                 tiempodañado1++;
-                textBox1.Text = Convert.ToString(tiempodañado1);
                 if (ExisteRepuesto)
                 {
                     Maquina1richTextBox.Visible = true;
@@ -121,7 +120,9 @@ namespace Proyecto_Simulación_Industria
 
             if (maquina1.Estado)
             {
+                maquina1.EsReparado = false;
                 Maquina1richTextBox.Visible = false;
+                MetodoRecuperacion1label.Visible = false;
                 ExisteRepuesto = random.NextDouble() >= 0.5;
                 Funcionando1PictureBox.Visible = true;
                 Error1PictureBox.Visible = false;
@@ -133,7 +134,7 @@ namespace Proyecto_Simulación_Industria
                 }
                 else
                 {
-                    if(maquina1.HorasHabiles!=12)
+                    if(maquina1.HorasHabiles==12 || maquina1.ProduccionPorHora > 50)
                         maquina1.ProduccionAtrasada -= 10;//Si esta produciendo el 20% mas ira restando los 10 de mas que produce
                 }
 
@@ -150,8 +151,9 @@ namespace Proyecto_Simulación_Industria
             Aleatorio = random.NextDouble();
             metodoRecuperacion = random.NextDouble();
 
-            if (maquina1.Estado && Aleatorio < probabilidadDañarse1)
-                maquina1.Estado = false;
+            if (maquina1.Estado)
+                if(probabilidadDañarse1 > Aleatorio)
+                    maquina1.Estado = false;
 
 
             if (maquina1.Estado)
@@ -165,19 +167,27 @@ namespace Proyecto_Simulación_Industria
             }
             else  
             {
+                if (!maquina1.EsReparado)
+                {
+                    maquina1.EsReparado = true;
+                    if (metodoRecuperacion > 0.50)
+                    {
+                        MetodoRecuperacion1label.Visible = true;
+                        MetodoRecuperacion1label.Text = "Aumento Horas";
+                        maquina1.HorasHabiles = 12;
+                        probabilidadDañarse1 += 0.001;
+                    }
+                    else
+                    {
+                        MetodoRecuperacion1label.Visible = true;
+                        MetodoRecuperacion1label.Text = "Aumento Producción";
+
+                        if (maquina1.ProduccionPorHora == 50)
+                            maquina1.ProduccionPorHora = Convert.ToInt32(maquina1.ProduccionPorHora * 1.20);
+                        probabilidadDañarse1 += 0.001;
+                    }
+                }
                 
-                AuxtextBox.Text = Convert.ToString(metodoRecuperacion);
-                maquina1.EsReparado = true;
-                if (metodoRecuperacion > 0.50)
-                {
-                    maquina1.HorasHabiles = 12;
-                }
-                else
-                {
-                    if(maquina1.ProduccionPorHora==50)
-                        maquina1.ProduccionPorHora = Convert.ToInt32(maquina1.ProduccionPorHora * 1.20);
-                }
-                probabilidadDañarse1 += 0.0025;
             }
         }
 
@@ -188,7 +198,7 @@ namespace Proyecto_Simulación_Industria
             Random random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
             double Aleatorio;
             double metodoRecuperacion; //Determina entre el a y el B
-            bool ExisteRepuesto = random.NextDouble() >= 0.5;
+            bool ExisteRepuesto = true;
 
 
             if (!maquina2.Estado)
@@ -197,6 +207,8 @@ namespace Proyecto_Simulación_Industria
 
                 if (ExisteRepuesto)
                 {
+                    Maquina2richTextBox.Visible = true;
+                    Maquina2richTextBox.Text = "La reparacion de la maquina demorará 2 dias";
                     if (horasNormales && tiempodañado2 == 20)
                     {
                         maquina2.Estado = true;
@@ -211,6 +223,8 @@ namespace Proyecto_Simulación_Industria
                 }
                 else
                 {
+                    Maquina2richTextBox.Visible = true;
+                    Maquina2richTextBox.Text = "No hay repuestos disponibles, la reparacion de la maquina demorará 3 dias";
                     if (horasNormales && tiempodañado2 == 30)
                     {
                         maquina2.Estado = true;
@@ -226,21 +240,25 @@ namespace Proyecto_Simulación_Industria
                
                 maquina2.ProduccionAtrasada += 40;
             }
-           
+
             if (maquina2.Estado)
             {
+                maquina2.EsReparado = false;
+                Maquina2richTextBox.Visible = false;
+                MetodoRecuperacion2label.Visible = false;   
                 Funcionando2PictureBox.Visible = true;
                 Error2PictureBox.Visible = false;
 
-                if (maquina2.ProduccionAtrasada == 0)
+                if (maquina2.ProduccionAtrasada <= 0)
                 {
                     maquina2.ProduccionPorHora = 40;
                     maquina2.HorasHabiles = 10;
+                    maquina2.ProduccionAtrasada = 0;
                 }
                 else
                 {
-                    if (maquina2.HorasHabiles != 12)
-                        maquina2.ProduccionAtrasada -= Convert.ToInt32(40*0.20);//Si esta produciendo el 20% mas ira restandlo
+                    if (maquina2.HorasHabiles == 12 || maquina2.ProduccionPorHora > 40)
+                        maquina2.ProduccionAtrasada -= 8;//Si esta produciendo el 20% mas ira restandlo
                 }
 
                 HorasATrabajar2label.Text = Convert.ToString(maquina2.HorasHabiles);
@@ -256,8 +274,9 @@ namespace Proyecto_Simulación_Industria
             Aleatorio = random.NextDouble();
             metodoRecuperacion = random.NextDouble();
 
-            if (maquina1.Estado && Aleatorio < probabilidadDañarse2)
-                maquina2.Estado = false;
+            if (maquina2.Estado)
+                if (probabilidadDañarse2 > Aleatorio)
+                    maquina2.Estado = false;
 
 
             if (maquina2.Estado)
@@ -271,17 +290,28 @@ namespace Proyecto_Simulación_Industria
             }
             else
             {
-                maquina2.EsReparado = true;
-                if (metodoRecuperacion > 0.50)
+                if (!maquina2.EsReparado)
                 {
-                    maquina2.HorasHabiles = 12;
+                    maquina2.EsReparado = true;
+                    if (metodoRecuperacion > 0.50)
+                    {
+                        MetodoRecuperacion2label.Visible = true;
+                        MetodoRecuperacion2label.Text = "Aumento horas";
+                        maquina2.HorasHabiles = 12;
+
+                        probabilidadDañarse2 += 0.001;
+                    }
+                    else
+                    {
+                        MetodoRecuperacion2label.Visible = true;
+                        MetodoRecuperacion2label.Text = "Aumento Producción";
+
+                        if (maquina2.ProduccionPorHora == 40)
+                            maquina2.ProduccionPorHora = Convert.ToInt32(maquina2.ProduccionPorHora * 1.20);
+
+                        probabilidadDañarse2 += 0.001;
+                    }
                 }
-                else
-                {
-                    if (maquina2.ProduccionPorHora == 40)
-                        maquina2.ProduccionPorHora = Convert.ToInt32(maquina2.ProduccionPorHora * 1.20);
-                }
-                probabilidadDañarse2 += 0.0025;
             }
         }
 
@@ -322,8 +352,8 @@ namespace Proyecto_Simulación_Industria
 
             if ((pedido.CantidadPedido > pedido.CantidadFabricada))
             {
-                Maquina1();
 
+                Maquina1();
                 ///////////////////////////////////////////////////////////////////////////////////////////
 
                 Maquina2();
@@ -334,6 +364,7 @@ namespace Proyecto_Simulación_Industria
             {
                 timer.Stop();
                 TotalProducido = 0;
+                MessageBox.Show("Pedido finalizado!!");
             }
 
 
@@ -382,6 +413,16 @@ namespace Proyecto_Simulación_Industria
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
         {
 
         }
