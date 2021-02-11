@@ -56,8 +56,6 @@ namespace Proyecto_Simulación_Industria
             this.label4 = new System.Windows.Forms.Label();
             this.HorasATrabajar1label = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.HorasTrabajadas2label = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.HorasTrabajadastextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -70,6 +68,15 @@ namespace Proyecto_Simulación_Industria
             this.label13 = new System.Windows.Forms.Label();
             this.ProduccionAtrasada1label = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.AuxtextBox = new System.Windows.Forms.TextBox();
+            this.Auxlabel = new System.Windows.Forms.Label();
+            this.ProduccionAtrasada2label = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ProduccionHora2label = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.HorasATrabajar2label = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.Maquina1richTextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Maquinaria1PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Maquinaria2PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Error1PictureBox)).BeginInit();
@@ -95,7 +102,7 @@ namespace Proyecto_Simulación_Industria
             // Maquinaria2PictureBox
             // 
             this.Maquinaria2PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Maquinaria2PictureBox.Image")));
-            this.Maquinaria2PictureBox.Location = new System.Drawing.Point(469, 481);
+            this.Maquinaria2PictureBox.Location = new System.Drawing.Point(469, 461);
             this.Maquinaria2PictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.Maquinaria2PictureBox.Name = "Maquinaria2PictureBox";
             this.Maquinaria2PictureBox.Size = new System.Drawing.Size(140, 127);
@@ -129,7 +136,7 @@ namespace Proyecto_Simulación_Industria
             // 
             this.Produccion2Label.AutoSize = true;
             this.Produccion2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Produccion2Label.Location = new System.Drawing.Point(700, 491);
+            this.Produccion2Label.Location = new System.Drawing.Point(700, 471);
             this.Produccion2Label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Produccion2Label.Name = "Produccion2Label";
             this.Produccion2Label.Size = new System.Drawing.Size(27, 20);
@@ -140,7 +147,7 @@ namespace Proyecto_Simulación_Industria
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(613, 491);
+            this.label3.Location = new System.Drawing.Point(613, 471);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 20);
@@ -300,7 +307,7 @@ namespace Proyecto_Simulación_Industria
             // IniciarButton
             // 
             this.IniciarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IniciarButton.Location = new System.Drawing.Point(46, 353);
+            this.IniciarButton.Location = new System.Drawing.Point(355, 153);
             this.IniciarButton.Name = "IniciarButton";
             this.IniciarButton.Size = new System.Drawing.Size(138, 81);
             this.IniciarButton.TabIndex = 21;
@@ -310,7 +317,7 @@ namespace Proyecto_Simulación_Industria
             // 
             // timer
             // 
-            this.timer.Interval = 500;
+            this.timer.Interval = 300;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // TotalProducidoTextbox
@@ -357,28 +364,6 @@ namespace Proyecto_Simulación_Industria
             this.label8.Size = new System.Drawing.Size(127, 20);
             this.label8.TabIndex = 24;
             this.label8.Text = "Horas a Trabajar";
-            // 
-            // HorasTrabajadas2label
-            // 
-            this.HorasTrabajadas2label.AutoSize = true;
-            this.HorasTrabajadas2label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HorasTrabajadas2label.Location = new System.Drawing.Point(752, 541);
-            this.HorasTrabajadas2label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.HorasTrabajadas2label.Name = "HorasTrabajadas2label";
-            this.HorasTrabajadas2label.Size = new System.Drawing.Size(27, 20);
-            this.HorasTrabajadas2label.TabIndex = 27;
-            this.HorasTrabajadas2label.Text = "00";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(613, 541);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 20);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Horas Trabajadas";
             // 
             // groupBox2
             // 
@@ -517,19 +502,122 @@ namespace Proyecto_Simulación_Industria
             this.label14.TabIndex = 33;
             this.label14.Text = "Producción Atrasada";
             // 
+            // AuxtextBox
+            // 
+            this.AuxtextBox.Location = new System.Drawing.Point(422, 293);
+            this.AuxtextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.AuxtextBox.Name = "AuxtextBox";
+            this.AuxtextBox.ReadOnly = true;
+            this.AuxtextBox.Size = new System.Drawing.Size(58, 20);
+            this.AuxtextBox.TabIndex = 36;
+            // 
+            // Auxlabel
+            // 
+            this.Auxlabel.AutoSize = true;
+            this.Auxlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Auxlabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Auxlabel.Location = new System.Drawing.Point(369, 296);
+            this.Auxlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Auxlabel.Name = "Auxlabel";
+            this.Auxlabel.Size = new System.Drawing.Size(36, 20);
+            this.Auxlabel.TabIndex = 35;
+            this.Auxlabel.Text = "Aux";
+            // 
+            // ProduccionAtrasada2label
+            // 
+            this.ProduccionAtrasada2label.AutoSize = true;
+            this.ProduccionAtrasada2label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProduccionAtrasada2label.Location = new System.Drawing.Point(774, 566);
+            this.ProduccionAtrasada2label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ProduccionAtrasada2label.Name = "ProduccionAtrasada2label";
+            this.ProduccionAtrasada2label.Size = new System.Drawing.Size(27, 20);
+            this.ProduccionAtrasada2label.TabIndex = 42;
+            this.ProduccionAtrasada2label.Text = "00";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(613, 566);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(157, 20);
+            this.label12.TabIndex = 41;
+            this.label12.Text = "Producción Atrasada";
+            // 
+            // ProduccionHora2label
+            // 
+            this.ProduccionHora2label.AutoSize = true;
+            this.ProduccionHora2label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProduccionHora2label.Location = new System.Drawing.Point(774, 539);
+            this.ProduccionHora2label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ProduccionHora2label.Name = "ProduccionHora2label";
+            this.ProduccionHora2label.Size = new System.Drawing.Size(27, 20);
+            this.ProduccionHora2label.TabIndex = 40;
+            this.ProduccionHora2label.Text = "00";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(615, 534);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(132, 20);
+            this.label16.TabIndex = 39;
+            this.label16.Text = "Producción / hora";
+            // 
+            // HorasATrabajar2label
+            // 
+            this.HorasATrabajar2label.AutoSize = true;
+            this.HorasATrabajar2label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HorasATrabajar2label.Location = new System.Drawing.Point(774, 503);
+            this.HorasATrabajar2label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.HorasATrabajar2label.Name = "HorasATrabajar2label";
+            this.HorasATrabajar2label.Size = new System.Drawing.Size(27, 20);
+            this.HorasATrabajar2label.TabIndex = 38;
+            this.HorasATrabajar2label.Text = "00";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(613, 503);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(127, 20);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "Horas a Trabajar";
+            // 
+            // Maquina1richTextBox
+            // 
+            this.Maquina1richTextBox.Location = new System.Drawing.Point(82, 395);
+            this.Maquina1richTextBox.Name = "Maquina1richTextBox";
+            this.Maquina1richTextBox.Size = new System.Drawing.Size(184, 61);
+            this.Maquina1richTextBox.TabIndex = 43;
+            this.Maquina1richTextBox.Text = "";
+            this.Maquina1richTextBox.Visible = false;
+            // 
             // SimulacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 609);
+            this.Controls.Add(this.Maquina1richTextBox);
+            this.Controls.Add(this.ProduccionAtrasada2label);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.ProduccionHora2label);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.HorasATrabajar2label);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.AuxtextBox);
+            this.Controls.Add(this.Auxlabel);
             this.Controls.Add(this.ProduccionAtrasada1label);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.ProduccionHora1label);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.Funcionando2PictureBox);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.HorasTrabajadas2label);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.HorasATrabajar1label);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.TotalProducidoTextbox);
@@ -598,8 +686,6 @@ namespace Proyecto_Simulación_Industria
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label HorasATrabajar1label;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label HorasTrabajadas2label;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox MesesTrabajadostextBox;
         private System.Windows.Forms.Label label10;
@@ -612,5 +698,14 @@ namespace Proyecto_Simulación_Industria
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label ProduccionAtrasada1label;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox AuxtextBox;
+        private System.Windows.Forms.Label Auxlabel;
+        private System.Windows.Forms.Label ProduccionAtrasada2label;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label ProduccionHora2label;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label HorasATrabajar2label;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.RichTextBox Maquina1richTextBox;
     }
 }

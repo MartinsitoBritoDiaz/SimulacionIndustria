@@ -13,10 +13,10 @@ namespace Proyecto_Simulación_Industria
         //maquinaId, ProduccionHora, HorasHabiles, Estado, EsReparado, ProdAtrasada}
 
         int TotalProducido = 0;
-        int ProducidoRetrasoMaquina1 = 1000;
-        int ProducidoRetrasodaMaquina2 = 800;
 
-        int ProducionInicialMaquina2 = 40; 
+        bool horasNormales;
+        bool horasExtras;
+
      
 
         int ProducidoMaquina1 = 0;
@@ -25,6 +25,24 @@ namespace Proyecto_Simulación_Industria
         int HorasTrabjadas = 0;
         int diasTrabajado = 0;
         int mesesTrabajados = 0;
+
+
+        public void horario() //para determinar si ninguna maquina trabaja horas extras, para asi los diaas duren mas
+        {
+            if (maquina1.HorasHabiles == 10 && maquina2.HorasHabiles == 10)
+            {
+                horasNormales = true;
+            }
+            else
+            {
+                if (maquina1.HorasHabiles == 10 && maquina2.HorasHabiles == 10)
+                {
+                    horasNormales = false;
+                    horasExtras = true;
+                }
+            }
+               
+        }
 
         public SimulacionForm()
         {
@@ -50,39 +68,64 @@ namespace Proyecto_Simulación_Industria
 
         int i = 0;
         int tiempodañado1 = 0;
+        double probabilidadDañarse1 = 0.025;
 
         public void Maquina1()
         {
             Random random = new Random();
             double Aleatorio;
-            double metodoReparacion; //Determina entre el a y el B
-            double probabilidadDañarse = 0.025;
-
-            int contadorHorasAumentado = 0; //Contador para saber la cantidad de horas que han pasado luego que se reparo
-
+            double metodoRecuperacion; //Determina entre el a y el B
+            bool ExisteRepuesto = true;
+            
 
             if (!maquina1.Estado)
             {
                 tiempodañado1++;
                 textBox1.Text = Convert.ToString(tiempodañado1);
-
-                if (tiempodañado1 == 20)
+                if (ExisteRepuesto)
                 {
-                    maquina1.Estado = true;
-                    tiempodañado1 = 0;
+                    Maquina1richTextBox.Visible = true;
+                    Maquina1richTextBox.Text = "La reparacion de la maquina demorará 2 dias";
+                    if (horasNormales && tiempodañado1 == 20)
+                    {
+                        maquina1.Estado = true;
+                        tiempodañado1 = 0;
+                    }
+                    else
+                       if (horasExtras && tiempodañado1 == 24)
+                        {
+                            maquina1.Estado = true;
+                            tiempodañado1 = 0;
+                        }
                 }
+                else
+                {
+                    Maquina1richTextBox.Visible = true;
+                    Maquina1richTextBox.Text = "No hay repuestos disponibles, la reparacion de la maquina demorará 3 dias";
+                    if (horasNormales && tiempodañado1 == 30)
+                    {
+                        maquina1.Estado = true;
+                        tiempodañado1 = 0;
+                    }
+                    else
+                       if (horasExtras && tiempodañado1 == 36)
+                        {
+                            maquina1.Estado = true;
+                            tiempodañado1 = 0;
+                        }
+                }
+                
                 maquina1.ProduccionAtrasada += 50;
             }
 
 
             if (maquina1.Estado)
             {
+                Maquina1richTextBox.Visible = false;
+                ExisteRepuesto = random.NextDouble() >= 0.5;
                 Funcionando1PictureBox.Visible = true;
                 Error1PictureBox.Visible = false;
-                
 
-                
-               
                 if (maquina1.ProduccionAtrasada == 0)
                 {
                     maquina1.ProduccionPorHora = 50;
@@ -93,8 +136,8 @@ namespace Proyecto_Simulación_Industria
                     if(maquina1.HorasHabiles!=12)
                         maquina1.ProduccionAtrasada -= 10;//Si esta produciendo el 20% mas ira restando los 10 de mas que produce
                 }
-                
 
+                HorasATrabajar1label.Text = Convert.ToString(maquina1.HorasHabiles);
                 ProduccionHora1label.Text = Convert.ToString(maquina1.ProduccionPorHora);
                 ProduccionAtrasada1label.Text= Convert.ToString(maquina1.ProduccionAtrasada);
             }
@@ -105,9 +148,9 @@ namespace Proyecto_Simulación_Industria
             }
 
             Aleatorio = random.NextDouble();
-            metodoReparacion = random.NextDouble();
+            metodoRecuperacion = random.NextDouble();
 
-            if (maquina1.Estado && Aleatorio < probabilidadDañarse)
+            if (maquina1.Estado && Aleatorio < probabilidadDañarse1)
                 maquina1.Estado = false;
 
 
@@ -120,46 +163,68 @@ namespace Proyecto_Simulación_Industria
                 TotalProducido = pedido.CantidadFabricada;
                 TotalProducidoTextbox.Text = Convert.ToString(TotalProducido);
             }
-            else
-                if (!maquina1.EsReparado)
+            else  
+            {
+                
+                AuxtextBox.Text = Convert.ToString(metodoRecuperacion);
+                maquina1.EsReparado = true;
+                if (metodoRecuperacion > 0.50)
                 {
-                    maquina1.EsReparado = true;
-                    if (metodoReparacion > 0.50)
-                    {
-                        probabilidadDañarse += 0.01;
-                        maquina1.HorasHabiles += 2;
-                    }
-                    else
-                    {
-                        probabilidadDañarse += 0.01;
+                    maquina1.HorasHabiles = 12;
+                }
+                else
+                {
+                    if(maquina1.ProduccionPorHora==50)
                         maquina1.ProduccionPorHora = Convert.ToInt32(maquina1.ProduccionPorHora * 1.20);
-                        contadorHorasAumentado = 0;
-
-                    }
+                }
+                probabilidadDañarse1 += 0.0025;
             }
-
-            contadorHorasAumentado++;
         }
 
         int tiempodañado2=0;
+        double probabilidadDañarse2 = 0.01;
         public void Maquina2()
         {
             Random random = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
             double Aleatorio;
-            double metodoReparacion; //Determina entre el a y el B
-            double probabilidadDañarse2 = 0.025;
+            double metodoRecuperacion; //Determina entre el a y el B
+            bool ExisteRepuesto = random.NextDouble() >= 0.5;
 
-            int contadorHorasAumentado = 0; //Contador para saber la cantidad de horas que han pasado luego que se reparo
 
             if (!maquina2.Estado)
             {
                 tiempodañado2++;
-                MateriaPrimatextBox.Text = Convert.ToString(tiempodañado2);
-                if (tiempodañado2 == 20)
+
+                if (ExisteRepuesto)
                 {
-                    maquina2.Estado = true;
-                    tiempodañado2 = 0;
+                    if (horasNormales && tiempodañado2 == 20)
+                    {
+                        maquina2.Estado = true;
+                        tiempodañado2 = 0;
+                    }
+                    else
+                       if (horasExtras && tiempodañado2 == 24)
+                        {
+                            maquina2.Estado = true;
+                            tiempodañado2 = 0;
+                        }
                 }
+                else
+                {
+                    if (horasNormales && tiempodañado2 == 30)
+                    {
+                        maquina2.Estado = true;
+                        tiempodañado2 = 0;
+                    }
+                    else
+                       if (horasExtras && tiempodañado2 == 36)
+                        {
+                            maquina2.Estado = true;
+                            tiempodañado2 = 0;
+                        }
+                }
+               
+                maquina2.ProduccionAtrasada += 40;
             }
            
             if (maquina2.Estado)
@@ -167,11 +232,20 @@ namespace Proyecto_Simulación_Industria
                 Funcionando2PictureBox.Visible = true;
                 Error2PictureBox.Visible = false;
 
-                if (40 < maquina2.ProduccionPorHora)
+                if (maquina2.ProduccionAtrasada == 0)
                 {
-                    if (contadorHorasAumentado == 100)
-                        maquina2.ProduccionPorHora = 40;
+                    maquina2.ProduccionPorHora = 40;
+                    maquina2.HorasHabiles = 10;
                 }
+                else
+                {
+                    if (maquina2.HorasHabiles != 12)
+                        maquina2.ProduccionAtrasada -= Convert.ToInt32(40*0.20);//Si esta produciendo el 20% mas ira restandlo
+                }
+
+                HorasATrabajar2label.Text = Convert.ToString(maquina2.HorasHabiles);
+                ProduccionHora2label.Text = Convert.ToString(maquina2.ProduccionPorHora);
+                ProduccionAtrasada2label.Text = Convert.ToString(maquina2.ProduccionAtrasada);
             }
             else
             {
@@ -180,7 +254,7 @@ namespace Proyecto_Simulación_Industria
             }
 
             Aleatorio = random.NextDouble();
-            metodoReparacion = random.NextDouble();
+            metodoRecuperacion = random.NextDouble();
 
             if (maquina1.Estado && Aleatorio < probabilidadDañarse2)
                 maquina2.Estado = false;
@@ -196,50 +270,50 @@ namespace Proyecto_Simulación_Industria
                 TotalProducidoTextbox.Text = Convert.ToString(TotalProducido);
             }
             else
-                if (maquina2.EsReparado == false)
-                    {
-                        maquina2.EsReparado = true;
-                        if (metodoReparacion > 0.50)
-                        {
-                            probabilidadDañarse2 += 0.01;
-                            maquina2.HorasHabiles += 2;
-                        }
-                        else
-                        {
-                            probabilidadDañarse2 += 0.01;
-                            maquina2.ProduccionPorHora = Convert.ToInt32(maquina2.ProduccionPorHora * 1.20);
-                            contadorHorasAumentado = 0;
-                        }
-                    }
-            contadorHorasAumentado++;
+            {
+                maquina2.EsReparado = true;
+                if (metodoRecuperacion > 0.50)
+                {
+                    maquina2.HorasHabiles = 12;
+                }
+                else
+                {
+                    if (maquina2.ProduccionPorHora == 40)
+                        maquina2.ProduccionPorHora = Convert.ToInt32(maquina2.ProduccionPorHora * 1.20);
+                }
+                probabilidadDañarse2 += 0.0025;
+            }
         }
 
        
         public void Ejecucion()
         {
+            horario();
             HorasTrabjadas++; //aumenta 1 hora
 
             if (HorasTrabjadas == 10)
             {
-                if(maquina1.HorasHabiles == 10 && maquina2.HorasHabiles == 10)
+                if(horasNormales)
                 {
                     diasTrabajado++;
                     HorasTrabjadas = 0;
                 }
                 else
                 {
-                    if (maquina1.HorasHabiles == 12 || maquina2.HorasHabiles == 12)
+                    if (horasExtras)
                         diasTrabajado++;
                         HorasTrabjadas = 0;
                 }
 
-                if (diasTrabajado == 30)
-                {
-                    mesesTrabajados++;
-                    MesesTrabajadostextBox.Text = Convert.ToString(mesesTrabajados);
-                    diasTrabajado = 0;
-                }
+                
 
+            }
+
+            if (diasTrabajado == 30)
+            {
+                mesesTrabajados++;
+                MesesTrabajadostextBox.Text = Convert.ToString(mesesTrabajados);
+                diasTrabajado = 0;
             }
 
 
